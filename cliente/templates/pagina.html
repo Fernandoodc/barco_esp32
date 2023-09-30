@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Control de Bote</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Boat Control</h1>
+        <form id="serverIP-form">
+            <div class="row mb-3">
+                <label for="serverIP" class="col-form-label col-sm-1">IP</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="serverIP" id="serverIP" aria-describedby="helpId"
+                        placeholder="0.0.0.0">
+                </div>
+                <div class="col sm-1">
+                    <button type="submit" class="btn btn-primary okIP">OK</button>
+                </div>
+            </div>
+        </form>
+        <form id="speed-form" class="form" action="/set_speed" method="POST">
+            <label for="speed">Velocidad: <span id="speedValue">25</span></label>
+            <input type="range" name="speed" id="speed" min="0" max="100" step="1" value="25">
+            <input type="submit" value="Regular Velocidad" class="btn btn-info">
+        </form>
+        <div class="container" style="background-image: url('/static/boat.jpeg'); background-repeat: no-repeat;">
+            <table style="width: 500px; height: 520px; margin: 10px 10px 10px 80px;">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <form class="form" action="/forward" method="POST">
+                                <input type="submit" id="adelante" value="Adelante" class="btn btn-success">
+                            </form>
+                        </td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form class="form" action="/left" method="POST">
+                                <input type="submit" id="izquierda" value="Izquierda" class="btn btn-warning">
+                            </form>
+                        </td>
+                        <td>
+                            <form class="form" action="/left" method="POST">
+                                <input type="submit" id="recto" value="Recto" class="btn btn-info">
+                            </form>
+                        </td>
+                        <td>
+                            <form class="form" action="/right" method="POST">
+                                <input type="submit" id="derecha" value="Derecha" class="btn btn-warning">
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <form class="form" action="/stop" method="POST">
+                                <input type="submit" id="parar" value="Parar" class="btn btn-danger">
+                            </form>
+                            <form class="form" action="/stop" method="POST">
+                                <input type="submit" id="atras" value="Reversa" class="btn btn-warning">
+                            </form>
+                        </td>
+                        <td></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+    <script>
+        const speedRange = document.getElementById("speed");
+        const speedValue = document.getElementById("speedValue");
+
+        speedRange.addEventListener("input", () => {
+            speedValue.textContent = speedRange.value;
+        });
+    </script>
+    <script src="/static/js/jquery-3.7.0.min.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>
