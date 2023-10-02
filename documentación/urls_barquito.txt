@@ -1,0 +1,22 @@
+/*Para la velocidad del motor*/
+/speed
+	parametros: porcen = int (de 0 -100%) /*porcentaje de velocidad a tomar*/,
+		    reverse = boolena /*si va a ir a girar el motor en revesa o no*/
+
+
+/*dirección del barco*/
+/direction
+	parametros: dir = str (l/L or r/R), /*dir sería left (l) o right(r)*/
+		    porcen = int (de 0 -100%) /*que tanto va a girar, un int que va del 0 al 100*/
+
+/*Para parar todo, como apagar en botón de apagado del barco*/
+/stop
+	parametros: stop = boolean
+
+/*Para dar una señal de vida, recomendado enviar cada medio segundo*/
+/alive
+	/*sin ningun paramentro*/
+
+/*NOTA*/
+/*todas las peticiones deben ser por metodo GET*/
+

@@ -24,7 +24,7 @@ int motor1StopState = HIGH;  //Stope state of motor HIGH=STOP
 
 Servo miServo;
 #define servoPin 14
-#define servoAlim 13 //pin de alimentación
+//#define servoAlim 13 //pin de alimentación
 
 int servoAngulo = 90;
 
@@ -72,7 +72,6 @@ void handleNotFound() {
 void setup(void) {
 
   Serial.begin(115200);
-  pinMode(servoAlim , OUTPUT); 
   motor.begin();
 
   miServo.attach(servoPin);
